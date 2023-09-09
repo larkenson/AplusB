@@ -11,23 +11,30 @@ export default function Counter() {
 
 const [result, setresult] = useState(1);
 
-
- 
-
   async function conclusion1() {
     try {
       const response = await fetch("https://jsonplaceholder.typicode.com/todos/2");
     const resulte = await response.json();
     console.log("Успех:", JSON.stringify(resulte));
-     setresult(resulte);
+
+
+    function app(){
+      const resul = resulte.map(function(item) {
+        return <tr key={item.id}>
+          <td>{item.id}</td>
+          <td>{item.title}</td>
+        </tr>;
+    });
+
+
+    }
+     setresult({app});
     console.log(resulte);
   } 
   catch (error) {
       console.error("Ошибка:", error);
     }
-  
 }
-
 
   return (
     <SimpleGrid>
@@ -59,7 +66,6 @@ const [result, setresult] = useState(1);
 
   </Card>
   </SimpleGrid>
-
   )
 }
 
