@@ -17,18 +17,10 @@ const [result, setresult] = useState(1);
     const resulte = await response.json();
     console.log("Успех:", JSON.stringify(resulte));
 
+      
 
-    function app(){
-      const resul = resulte.map(function(item) {
-        return <tr key={item.id}>
-          <td>{item.id}</td>
-          <td>{item.title}</td>
-        </tr>;
-    });
-
-
-    }
-     setresult({app});
+    
+     setresult(resulte);
     console.log(resulte);
   } 
   catch (error) {
@@ -61,12 +53,14 @@ const [result, setresult] = useState(1);
       </CardFooter>
 
       <CardBody>
-        <Text> {result.toString() } {JSON.stringify(result)}</Text>
+        <ul>
+        <li key={result.id}>{result.id}</li>
+        <li key={result.title}>{result.title}</li>
+        <li key={result.completed}>{result?.completed?.toString()}</li>
+        </ul>
       </CardBody>
-
+      
   </Card>
   </SimpleGrid>
   )
-}
-
-
+  }
