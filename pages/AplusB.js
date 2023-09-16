@@ -16,10 +16,6 @@ const [result, setresult] = useState(1);
       const response = await fetch("https://jsonplaceholder.typicode.com/todos/2");
     const resulte = await response.json();
     console.log("Успех:", JSON.stringify(resulte));
-
-      
-
-    
      setresult(resulte);
     console.log(resulte);
   } 
@@ -63,4 +59,4 @@ const [result, setresult] = useState(1);
   </Card>
   </SimpleGrid>
   )
-  }
+}
